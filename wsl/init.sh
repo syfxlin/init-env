@@ -90,6 +90,10 @@ installDocker() {
     # 更新软件源
     sudo mkdir -p /etc/docker
     sudo cp ./daemon.json /etc/docker/daemon.json
+
+    sudo mkdir -p /etc/systemd/system/docker.service.d
+    sudo cp ./docker-overwrite.conf /etc/systemd/system/docker.service.d/overwrite.conf
+
     sudo systemctl daemon-reload
     sudo systemctl restart docker
 }

@@ -116,5 +116,5 @@ installSetupWsl2() {
 setMirrors
 installBase
 installZsh
-#installSetupWsl2
-#installDocker
+installSetupWsl2
+installDocker

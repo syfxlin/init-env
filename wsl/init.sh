@@ -96,6 +96,9 @@ installDocker() {
 
     sudo systemctl daemon-reload
     sudo systemctl restart docker
+
+    # 可选，如果你遇到 2375 有监听，但是无法访问的问题，可以通过运行一个转发程序来修复
+    #docker run -d --restart=always -p 127.0.0.1:23750:2375 -v /var/run/docker.sock:/var/run/docker.sock  alpine/socat  tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 }
 
 # 安装 systemd 和 设置初始化脚本 (自动启动 systemd，设置 Windows host，DISPLAY)

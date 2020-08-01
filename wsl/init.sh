@@ -1,10 +1,10 @@
 #!/bin/bash
 # set -v on
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-SKYBLUE='\033[0;36m'
-PLAIN='\033[0m'
+RED=$'\e[0;31m'
+GREEN=$'\e[0;32m'
+YELLOW=$'\e[0;33m'
+SKYBLUE=$'\e[0;36m'
+PLAIN=$'\e[0m'
 
 if [ $(uname) != "Linux" ];then
 echo -e "\033[31m This script is only for Linux! \033[0m"

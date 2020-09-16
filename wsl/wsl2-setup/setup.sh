@@ -1,4 +1,8 @@
-export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
+if [ ! -n "$(ip a s | grep 192.168.50.2)" ];then
+    cat $HOME/.setup/set-ip.ps1 | /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe > /dev/null
+fi
+
+export WSL_HOST=192.168.50.1
 export DISPLAY=$WSL_HOST:0
 
 # 删除旧的 hosts

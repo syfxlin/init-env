@@ -1,5 +1,6 @@
 #!/bin/bash
 # set -v on
+
 RED=$'\e[0;31m'
 GREEN=$'\e[0;32m'
 YELLOW=$'\e[0;33m'
@@ -53,6 +54,7 @@ installBase() {
     sudo apt-get -y install wget curl git
     sudo apt-get -y install htop python3 python3-pip
     sudo apt-get -y install language-pack-zh-hans
+	sudo apt-get -y install iproute2 net-tools nano
     sudo update-locale LANG=zh_CN.UTF-8
 }
 
@@ -64,12 +66,12 @@ installZsh() {
 
     # 安装 oh-my-zsh
     sudo sed -i "1i199.232.4.133 raw.githubusercontent.com" /etc/hosts
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     # 下载插件
-    sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
     mv zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git
     mv zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
     rm ~/.zshrc
